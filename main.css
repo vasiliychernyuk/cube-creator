@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+
+:root {
+    --scene-color: rgb(179, 178, 201);
+    --scene-background: rgb(63, 61, 105);
+
+    --code-section-background: rgb(150, 151, 199);
+
+    --footer-color: rgb(51, 51, 51);
+}
+
+:root {
+    --cube-side_size: 400px;
+}
+
+* {margin: 0; padding: 0; background: none; border: none; outline: none; box-sizing: border-box;}
+
+body {
+    font-family: 'PT Mono', sans-serif;
+}
+
+button { cursor: pointer; }
+
+.version {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+
+    font-size: .8em;
+
+    color: #111;
+}
+
+.tools {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 2em;
+}
+
+.tools > button {
+    margin: 1em 0;
+}
+
+.scene-section {
+    overflow: hidden;
+
+    height: 100vh;
+
+    background-color: var(--scene-background);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scene {
+    position: relative;
+
+    width: 74vw;
+    height: 82vh;
+
+    background-color: var(--scene-color);
+
+    overflow: hidden;
+
+    box-shadow: .5em .5em 2em rgba(24, 22, 63, 0.5);
+}
+
+.source-code-section {
+    height: 100vh;
+
+    background-color: var(--code-section-background);
+}
+
+.interface {
+    z-index: 1;
+}
+
+.context {
+    width: 74vw;
+    height: 82vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    perspective: 2000px;
+
+    z-index: 0;
+}
+
+.cube {
+    width: var(--cube-side_size);
+    height: var(--cube-side_size);
+
+    background-color: rgba(0, 0, 0, 0.021);
+
+    transform-style: preserve-3d;
+
+    position: relative;
+
+    transform: rotateY(45deg);
+
+    /* animation: 20s rotate linear infinite; */
+}
+
+.cube > * {
+    width: var(--cube-side_size);
+    height: var(--cube-side_size);
+
+    position: absolute;
+
+    transition: opacity .1s linear;
+}
+
+.cube > *:hover {
+    /* opacity: .2; */
+
+    border: 1px solid gold;
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(200px);
+
+    background-color: #333;
+}
+
+.bottom {
+    transform: rotateX(90deg) translateZ(-200px);
+
+    background-color: #333;
+}
+
+.left {
+    transform: rotateY(90deg) translateZ(-200px);
+    background-color: #444;
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(200px);
+    background-color: #444;
+}
+
+.front {
+    transform: translateZ(200px);
+    background-color: #555;
+}
+
+.back {
+    transform: translateZ(-200px);
+    background-color: #555;
+}
+
+.navigator {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+
+    width: 180px;
+    height: 180px;
+
+    background-color: rgba(85, 85, 85, 0.13);
+}
+
+.navigator > * {
+    position: absolute;
+}
+
+.navigator-top {
+    top: 0;
+    left: 74px;
+
+    transform: rotate(-90deg);
+}
+
+.navigator-bottom {
+    bottom: 0;
+    left: 74px;
+
+    transform: rotate(90deg);
+}
+
+.navigator-left {
+    top: 74px;
+    left: 0;
+
+    transform: rotate(180deg);
+}
+
+.navigator-right {
+    top: 74px;
+    right: 0;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.cube-rotateX-range {
+    position: absolute;
+
+    bottom: 40px;
+    left: 80px;
+
+    width: 50vw;
+}
+
+.cube-rotateX-range::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+
+    height: 2px;
+
+    background-color: rgb(139, 139, 139);
+}
+
+.cube-rotateX-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+
+    background-color: #555;
+    
+    width: 8px;
+    height: 24px;
+
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    transform: translateY(-11px);
+}
+
+.cube-rotateY-range {
+    position: absolute;
+
+    bottom: 200px;
+    left: 40px;
+
+    width: 50vh;
+
+    transform-origin: left center;
+    transform: rotate(-90deg);
+}
+
+.cube-rotateY-range::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+
+    height: 2px;
+
+    background-color: rgb(139, 139, 139);
+}
+
+.cube-rotateY-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+
+    background-color: #555;
+    
+    width: 8px;
+    height: 24px;
+
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    transform: translateY(-11px);
+}
+
+
+
+@keyframes rotate {
+    to {
+        transform: rotateY(360deg) rotateX(360deg);
+    }
+}
+
+
+footer {
+    height: 20vh;
+
+    background-color: var(--footer-color);
+
+    color: rgb(255, 255, 255);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
