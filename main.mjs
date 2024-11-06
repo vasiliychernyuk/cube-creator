@@ -19,12 +19,6 @@ sizeInput.addEventListener('input', () => {
     root.style.setProperty('--cube-size', `${sizeInput.value}px`);
 });
 
-
-
-
-
-
-
 clearTool.addEventListener('click', () => {
     root.style.setProperty('--cube-rotate-degree-X', '0deg');
     root.style.setProperty('--cube-rotate-degree-Y', '45deg');
