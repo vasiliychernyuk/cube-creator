@@ -9,39 +9,68 @@
 <body>
 
     <main class="scene-section">
-        <div class="tools">
-            <button class="tool-add-cube" title="Add cube">
-                <svg height="48px" viewBox="0 -960 960 960" width="48px" fill="#F3F3F3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
-            </button>
 
-            <button class="tool-remove-cube" title="Delete cube">
+        <div class="tools">
+
+            <button class="tool-clear-cube-properties" title="Clear cube properties">
                 <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#F3F3F3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
             </button>
 
         </div>
 
+
         <section class="scene">
+
             <div class="interface navigator">
+
                 <button class="navigator-top">
                     <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#F3F3F3"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg>
                 </button>
+
                 <button class="navigator-bottom">
                     <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#F3F3F3"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg>
                 </button>
+
                 <button class="navigator-left">
                     <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#F3F3F3"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg>
                 </button>
+
                 <button class="navigator-right">
                     <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#F3F3F3"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg>
                 </button>
+
             </div>
 
-            <input class="interface cube-rotateX-range" type="range" min="0" max="360" value="45">
+            <div class="cube-section">
+
+                <div class="default-cube">
+                    <div class="default-side default-top"></div>
+                    <div class="default-side default-bottom"></div>
+
+                    <div class="default-side default-left"></div>
+                    <div class="default-side default-right"></div>
+
+                    <div class="default-side default-front"></div>
+                    <div class="default-side default-back"></div>
+                </div>
+
+            </div>
+
+            
             <input class="interface cube-rotateY-range" type="range" min="0" max="360" value="45">
+            <input class="interface cube-rotateX-range" type="range" min="0" max="360" value="0">
+
+            <section class="cube-properties">
+                <span>Size: <input class="cube-properties__size" type="number" value="400"></span>
+            </section>
+
         </section>
 
-        <p class="version">Version: 0.1.0</p>
+        <p class="version">Version: 0.1.1</p>
+
     </main>
+
+    <section class="dim">Only for desktop using</section>
     
     <script type="module" src="./main.mjs"></script>
 </body>

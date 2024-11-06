@@ -1,93 +1,33 @@
-import createElement from "./element.mjs";
+const root = document.querySelector(':root');
 
-let contextCounter = 0;
+const rotateXInput = document.querySelector('.cube-rotateX-range');
+const rotateYInput = document.querySelector('.cube-rotateY-range');
 
-const addCubeButton = document.querySelector('.tool-add-cube');
-const removeCubeButton = document.querySelector('.tool-remove-cube');
+const sizeInput = document.querySelector('.cube-properties__size');
 
-const navigator = document.querySelector('.navigator');
+const clearTool = document.querySelector('.tool-clear-cube-properties');
 
-const createCube = () => {
+rotateXInput.addEventListener('input', () => {
+    root.style.setProperty('--cube-rotate-degree-X', `${rotateXInput.value}deg`);
+});
 
-    const contextId = `context-${contextCounter}`;
+rotateYInput.addEventListener('input', () => {
+    root.style.setProperty('--cube-rotate-degree-Y', `${rotateYInput.value}deg`);
+});
 
-    const context = createElement({
-        id: contextId,
-        class: 'context'
-    });
+sizeInput.addEventListener('input', () => {
+    root.style.setProperty('--cube-size', `${sizeInput.value}px`);
+});
 
-    const cube = createElement({
-        id:`cube__${contextId}`,
-        class: 'cube'
-    }, context);
 
-    const topSide    = createElement({
-        id:`top-side__${contextId}`,
-        class: 'top'
-    }, cube);
 
-    const bottomSide = createElement({
-        id:`bottom-side__${contextId}`,
-        class: 'bottom'
-    }, cube);
 
-    const leftSide   = createElement({
-        id: `left-side__${contextId}`,
-        class: 'left'
-    }, cube);
 
-    const rightSide  = createElement({
-        id: `right-side__${contextId}`,
-        class: 'right'
-    }, cube);
 
-    const frontSide  = createElement({
-        id: `front-side__${contextId}`,
-        class: 'front'
-    }, cube);
 
-    const backSide   = createElement({
-        id: `back left-side__${contextId}`,
-        class: 'back'
-    }, cube);
-
-    contextCounter += 1;
-}
-
-const removeCube = () => {
-    const element = document.querySelector('.context');
-    element.remove();
-}
-
-let createToggler = true;
-
-const createHandler = () => {
-    if (createToggler) {
-        createCube();
-        addCubeButton.removeEventListener('click', createHandler);
-        removeCubeButton.addEventListener('click', removeHandler);
-
-        createToggler = !createToggler;
-    }
-}
-
-const removeHandler = () => {
-    if(!createToggler) {
-        removeCube();
-        addCubeButton.addEventListener('click', createHandler);
-        removeCubeButton.addEventListener('click', removeHandler);
-
-        createToggler = !createToggler;
-    }
-}
-
-addCubeButton.addEventListener('click', createHandler);
-
-removeCubeButton.addEventListener('click', removeHandler);
-
-// const root = document.querySelector(':root');
-// const rootStyles = getComputedStyle(root);
-// const size = rootStyles.getPropertyValue('--cube-side_size');
-
-// root.style.setProperty('--cube-side_size', '600px');
-// console.info(size)
+clearTool.addEventListener('click', () => {
+    root.style.setProperty('--cube-rotate-degree-X', '0deg');
+    root.style.setProperty('--cube-rotate-degree-Y', '45deg');
+    root.style.setProperty('--cube-size', '400px');
+    sizeInput.value = 400;
+});
