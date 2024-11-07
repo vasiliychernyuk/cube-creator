@@ -16,6 +16,26 @@ body {
     font-family: 'PT Mono', sans-serif;
 }
 
+.sourcecode {
+    position: absolute;
+    top: 40px;
+    left: 80px;
+
+    color: #111;
+
+    z-index: 1;
+
+    font-size: .9em;
+}
+
+.sourcecode__html {
+    border-bottom: 1px solid #999;
+
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+
+}
+
 .version {
     position: absolute;
     bottom: 1em;
@@ -294,12 +314,15 @@ input[type=range] {
 
     padding: 40px 0;
 
+    user-select: none;
     /* background-color: rgba(85, 85, 85, 0.13); */
 }
 
 .cube-properties__size {
     width: 55px;
     font-size: 1em;
+
+    user-select: none;
 }
 
 
